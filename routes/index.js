@@ -1,0 +1,23 @@
+var express = require('express');
+var router = express.Router();
+const contactController = require('../src/Controller/contactController');
+const cartController = require('../src/Controller/cartController');
+const myaccountController = require('../src/Controller/myaccountController');
+const loginController = require('../src/Controller/loginController');
+const productdetailController = require('../src/Controller/productdetailController');
+const constantController = require('../src/Controller/constantController');
+const productlistController = require('../src/Controller/productlistController');
+const checkoutController = require('../src/Controller/checkoutController');
+const { route } = require('./users');
+/* GET home page. */
+router.get('/',constantController.index);
+router.get('/contact',contactController.index);
+router.get('/cart',cartController.index);
+router.get('/myaccount',myaccountController.index);
+router.get('/login',loginController.index);
+router.post('/login-save',loginController.store);
+router.get('/productdetail',productdetailController.index);
+router.get('/productlist',productlistController.index);
+router.get('/checkout',checkoutController.index);
+router.post('/checkout-save',checkoutController.store);
+module.exports = router;
