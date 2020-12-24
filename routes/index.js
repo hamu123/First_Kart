@@ -12,12 +12,15 @@ const { route } = require('./users');
 /* GET home page. */
 router.get('/',constantController.index);
 router.get('/contact',contactController.index);
+router.post('/save-contact',contactController.store);
 router.get('/cart',cartController.index);
 router.get('/myaccount',myaccountController.index);
 router.get('/login',loginController.index);
 router.post('/login-save',loginController.store);
 router.get('/productdetail',productdetailController.index);
-router.get('/productlist',productlistController.index);
+router.get('/store-product',productlistController.productStore);
+router.post('/save-products', productlistController.store);
+router.get('/products',productlistController.index);
 router.get('/checkout',checkoutController.index);
 router.post('/checkout-save',checkoutController.store);
 module.exports = router;

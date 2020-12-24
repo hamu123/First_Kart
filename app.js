@@ -32,7 +32,8 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 mongoose.connect("mongodb://localhost:27017/FIRST_CART",{
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 }).then(() => {
   console.log("Database Connected Successfully")
 }).catch((error) => {
