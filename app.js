@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -40,6 +41,19 @@ mongoose.connect("mongodb://localhost:27017/FIRST_CART",{
   console.log(error);
   process.exit();
 })
+app.use(session({
+  genid: (req) => {
+    console.log(req.sessionID);
+    return uuid()
+  },
+  
+  secret: 'dskdjkdd',
+  saveUninitialized:true,
+  resave:false,
+  cookie: {
+    maxAge: 60000
+  }
+}));
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

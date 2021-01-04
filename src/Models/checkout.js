@@ -6,7 +6,7 @@ const CheckoutSchema = new mongoose.Schema({
     EMail: String,
     MobileNo: String,
     Address: String,
-    Country: String,
+    
     City: String,
     State:String,
     ZIP: String,

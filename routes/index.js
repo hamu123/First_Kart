@@ -21,6 +21,6 @@ router.get('/productdetail',productdetailController.index);
 router.get('/store-product',productlistController.productStore);
 router.post('/save-products', productlistController.store);
 router.get('/products',productlistController.index);
-router.get('/checkout',checkoutController.index);
+router.get('/checkouts',checkoutController.index);
 router.post('/checkout-save',checkoutController.store);
 module.exports = router;

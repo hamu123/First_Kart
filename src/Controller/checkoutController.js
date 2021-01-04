@@ -1,25 +1,27 @@
 const { Schema } = require('mongoose');
-const checkout = require('../Models/checkout');
+const Checkout = require('../Models/checkout');
 exports.index = async(req,res)=>{
-    res.render('checkout');
+    const checkout = await Checkout.find();
+    res.render('checkout',{
+        checkouts:checkout
+    });
 }
+
 exports.store = (req,res)=>{
-    const {first_name,last_name,email,mobileno,address,country,city,state,zip } = req.body;
-    const schema = new Schema({
+    const {first_name,last_name,email,mobile_no,address,city,state,zip } = req.body;
+    console.log(req.body);
+    const schema = new Checkout({
         FirstName:first_name,
         LastName:last_name,
         EMail:email,
-        MobileNo:mobileno,
+        MobileNo:mobile_no,
         Address:address,
-        Country:country,
+        
         City:city,
         State:state,
         ZIP:zip,
-    })
-    checkout.save().then((result)=>{
-        console.log('checkout successful');
-    }).catch(err=>{
-        console.log('checkout not sucessful');
-    })
+    }).save().then(result => {
+        console.log('recorded')
+    });
     res.redirect('/');
 }

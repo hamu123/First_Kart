@@ -193,7 +193,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                                     {% for checkout in checkouts %}
                             <div class="shipping-address">
                                 <h2>Shipping Address</h2>
                                 <div class="row">
@@ -238,11 +238,18 @@
                                         <label>ZIP Code</label>
                                         <input name = "zip" class="form-control" type="text" placeholder="ZIP Code">
                                     </div>
+                                    
                                 </div>
+
                             </div>
+                              {% endfor %}
                         </div>
                     </div>
+                    <div class="col-md-12">
+                                        <button type="submit">Place Order</button>
+                                    </div>
                     </form>
+
                     <div class="col-lg-4">
                         <div class="checkout-inner">
                             <div class="checkout-summary">
@@ -313,7 +320,7 @@
                                     </div>
                                 </div>
                                 <div class="checkout-btn">
-                                    <button>Place Order</button>
+                                    <button type="submit">Place Order</button>
                                 </div>
                             </div>
                         </div>
