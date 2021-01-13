@@ -22,25 +22,17 @@ exports.store = (req,res)=>{
     });
 
     Login.save().then((result)=>{
-        console.log('login sucessful');
+        console.log('register sucessful');
     }).catch(err=>{
-        console.log('login unsucessful');
+        console.log('register unsucessful');
     });
 
     res.redirect('/');
 
 }
-
-exports.signin = (req,res)=>{
+exports.PostLogin = async (req,res)=>{
     const {email,password} = req.body;
-    const schema = new Schema({
-        email:email,
-        password:password
-    });
-    signin.findOne({email:email}).then((result)=>{
-        console.log('Signin Sucessful');
-
-    }).catch(err=>{
-        console.log('Signin not sucessful');
-    })
+    const user = await login.findOne({email:email});
+    
+    console.log(user);
 }

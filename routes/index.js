@@ -20,7 +20,7 @@ router.post('/cart-delete',cartController.delete);
 router.get('/myaccount',myaccountController.index);
 router.get('/login',loginController.index);
 router.post('/login-save',loginController.store);
-router.post('/signin',loginController.signin);
+router.post('/login',loginController.PostLogin);
 router.get('/productdetail',productdetailController.index);
 router.get('/store-product',productlistController.productStore);
 router.post('/save-products', productlistController.store);
